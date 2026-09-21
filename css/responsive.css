@@ -1,0 +1,66 @@
+/* ==========================================================================
+   Responsive (mobile first): estos estilos SOLO se aplican en pantallas
+   más grandes. Este archivo va al final para poder sobrescribir a los demás.
+   ========================================================================== */
+
+@media (min-width: 48em) {
+  :root { --gutter: 2rem; }
+
+  .patch { padding: var(--space-5); }
+  .patch__ports { gap: 0.55rem; }
+
+  .process__list { grid-template-columns: repeat(2, 1fr); gap: var(--space-6) var(--space-5); }
+  .contact__grid { grid-template-columns: 1fr 1fr; align-items: start; }
+
+  .service { grid-template-columns: 0.375rem 1fr auto; align-items: center; }
+  .service__cable { grid-row: auto; align-self: stretch; }
+  .service__action { grid-column: auto; }
+}
+
+@media (min-width: 56em) {
+  /* Navegación en línea en lugar de menú desplegable */
+  .nav-toggle { display: none; }
+
+  .site-nav {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-5);
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .site-nav__list { display: flex; gap: var(--space-4); }
+
+  /* Hero en escritorio: la foto ocupa todo el alto y queda a la derecha, detrás del texto */
+  .hero {
+    display: flex;
+    align-items: center;
+    min-height: clamp(34rem, 80vh, 46rem);
+  }
+
+  .hero__media {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .hero__media::before {
+    background:
+      linear-gradient(90deg, var(--color-paper) 0%, rgba(0, 0, 0, 0.55) 28%, transparent 60%),
+      linear-gradient(0deg, var(--color-paper) 0%, transparent 24%);
+  }
+
+  .hero__inner { width: min(100% - (var(--gutter) * 2), 72rem); padding-block: var(--space-7); }
+
+  .services__intro { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 64em) {
+  .process__list { grid-template-columns: repeat(4, 1fr); }
+}
