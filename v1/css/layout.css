@@ -1,0 +1,77 @@
+/* Estructura de la página: contenedores, secciones y grillas */
+.container {
+  width: min(100% - (var(--gutter) * 2), 72rem);
+  margin-inline: auto;
+}
+
+.section { padding-block: var(--space-section); }
+.section--surface {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-line);
+}
+
+.section__header {
+  max-width: 40rem;
+  margin-bottom: var(--space-6);
+}
+
+.section__title { font-size: var(--text-2xl); }
+
+.section__intro {
+  margin-top: var(--space-3);
+  color: var(--color-ink-soft);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* pointer-events: el contenedor no debe bloquear el rombo que está detrás */
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  padding-block: var(--space-6) var(--space-section);
+  pointer-events: none;
+}
+
+.hero__content {
+  max-width: 36rem;
+  pointer-events: auto;
+}
+
+.services__intro {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+.services__intro .section__header { margin-bottom: 0; }
+
+.services__list { border-top: 1px solid var(--color-line); }
+
+.process__list {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.contact__grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.site-footer {
+  padding-block: var(--space-6) 5.5rem; /* espacio extra para el botón de chat */
+  border-top: 1px solid var(--color-line);
+  background: var(--color-paper);
+  color: var(--color-ink-soft);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-6);
+}

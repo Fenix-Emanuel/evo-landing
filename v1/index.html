@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>EVO Solutions+ | Technology, Network &amp; Infrastructure</title>
+  <meta name="description" content="Network, low-voltage and IT infrastructure for businesses in Austin, TX. Structured cabling, fiber, Wi-Fi and security infrastructure. Service in English and Spanish.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="EVO Solutions+ | Technology, Network &amp; Infrastructure">
+  <meta property="og:description" content="Structured cabling, fiber, Wi-Fi and security infrastructure in Austin, TX. Service in English and Spanish.">
+
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+  <!-- El orden importa: variables → reset → base → layout → componentes → chat → responsive -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="#top" aria-label="EVO Solutions+">
+        <span class="brand__mark" aria-hidden="true">E+</span>
+        <span>EVO Solutions+</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="visually-hidden" data-i18n="nav.menu">Menu</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <nav class="site-nav" id="site-nav" data-nav-menu data-i18n-aria-label="nav.label" aria-label="Main navigation">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="#services" data-i18n="nav.services">Services</a></li>
+          <li><a class="site-nav__link" href="#process" data-i18n="nav.process">Process</a></li>
+          <li><a class="site-nav__link" href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+
+        <div class="lang-switch" role="group" data-i18n-aria-label="nav.language" aria-label="Language">
+          <button class="lang-switch__button" type="button" data-lang-option="en" aria-pressed="true" lang="en">EN</button>
+          <button class="lang-switch__button" type="button" data-lang-option="es" aria-pressed="false" lang="es">ES</button>
+        </div>
+
+        <button class="button button--primary" type="button" data-chat-open data-i18n="nav.cta">Talk to us</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <!-- Foto + rombo interactivo. Reemplazar assets/images/hero.jpg por la foto original -->
+      <div class="hero__media">
+        <img class="hero__image" src="../assets/images/hero.jpg" alt="" width="1200" height="1060" fetchpriority="high">
+        <div class="hero__welcome">
+          <button class="welcome-orb" type="button" data-chat-open data-i18n-aria-label="hero.orbLabel" aria-label="Welcome to EVO Solutions+. Start a chat.">
+            <span class="welcome-orb__shape" aria-hidden="true"></span>
+            <span class="welcome-orb__core" aria-hidden="true"></span>
+          </button>
+          <div class="welcome-bubble" aria-hidden="true">
+            <strong class="welcome-bubble__title" data-i18n="hero.welcome.title">Welcome to EVO Solutions+</strong>
+            <span class="welcome-bubble__text" data-i18n="hero.welcome.cta">What do you need? Start a chat.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title" id="hero-title" data-i18n="hero.title">Technology that keeps your business moving.</h1>
+          <p class="hero__text" data-i18n="hero.text">Structured cabling, fiber, Wi-Fi and security infrastructure for businesses in Austin, TX.</p>
+
+          <div class="hero__actions">
+            <button class="button button--primary" type="button" data-chat-open data-i18n="hero.quote">Get a quote</button>
+            <a class="button button--secondary" href="#contact" data-whatsapp data-i18n="hero.whatsapp">Chat on WhatsApp</a>
+          </div>
+
+          <p class="language-note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9S14.500 18.300 12 21c-2.500-2.700-3.800-5.700-3.800-9S9.500 5.700 12 3z"/></svg>
+            <span data-i18n="hero.languages">We serve you in English and Spanish.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SERVICIOS ===================== -->
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="services__intro">
+          <div class="section__header">
+          <h2 class="section__title" id="services-title" data-i18n="services.title">What we install and support</h2>
+          <p class="section__intro" data-i18n="services.intro">Choose the one closest to your project. Not sure which it is? Ask us and we will help you work it out.</p>
+        </div>
+
+          <!-- Decorativo: cada color de cable = un servicio de la lista de abajo -->
+          <div class="patch" aria-hidden="true">
+            <ul class="patch__ports">
+              <li class="patch__port patch__port--network"><span class="patch__led"></span></li>
+              <li class="patch__port patch__port--network"><span class="patch__led patch__led--blink"></span></li>
+              <li class="patch__port patch__port--fiber"><span class="patch__led"></span></li>
+              <li class="patch__port"></li>
+              <li class="patch__port patch__port--wifi"><span class="patch__led"></span></li>
+              <li class="patch__port"></li>
+              <li class="patch__port patch__port--security"><span class="patch__led"></span></li>
+              <li class="patch__port"></li>
+              <li class="patch__port"></li>
+              <li class="patch__port patch__port--network"><span class="patch__led patch__led--blink"></span></li>
+              <li class="patch__port"></li>
+              <li class="patch__port patch__port--fiber"><span class="patch__led"></span></li>
+              <li class="patch__port"></li>
+              <li class="patch__port patch__port--wifi"><span class="patch__led patch__led--blink"></span></li>
+              <li class="patch__port"></li>
+              <li class="patch__port patch__port--security"><span class="patch__led"></span></li>
+            </ul>
+            <ul class="patch__legend">
+              <li class="patch__key patch__key--network" data-i18n="service.network">Network and cabling</li>
+              <li class="patch__key patch__key--fiber" data-i18n="service.fiber">Fiber optics</li>
+              <li class="patch__key patch__key--wifi" data-i18n="service.wifi">Wi-Fi</li>
+              <li class="patch__key patch__key--security" data-i18n="service.security">Security</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="services__list">
+          <article class="service service--network">
+            <div class="service__cable" aria-hidden="true"></div>
+            <div class="service__body">
+              <h3 class="service__title" id="service-network-title" data-i18n="services.network.title">Network infrastructure</h3>
+              <p class="service__text" data-i18n="services.network.text">Structured cabling, rack systems and network equipment, tested and certified so the network performs as it should.</p>
+            </div>
+            <button class="button button--ghost service__action" type="button" data-chat-topic="network" aria-describedby="service-network-title" data-i18n="services.cta">Ask about this</button>
+          </article>
+
+          <article class="service service--fiber">
+            <div class="service__cable" aria-hidden="true"></div>
+            <div class="service__body">
+              <h3 class="service__title" id="service-fiber-title" data-i18n="services.fiber.title">Fiber optics</h3>
+              <p class="service__text" data-i18n="services.fiber.text">Fiber runs, terminations and splicing for fast, stable links between rooms, floors and buildings.</p>
+            </div>
+            <button class="button button--ghost service__action" type="button" data-chat-topic="fiber" aria-describedby="service-fiber-title" data-i18n="services.cta">Ask about this</button>
+          </article>
+
+          <article class="service service--wifi">
+            <div class="service__cable" aria-hidden="true"></div>
+            <div class="service__body">
+              <h3 class="service__title" id="service-wifi-title" data-i18n="services.wifi.title">Wi-Fi solutions</h3>
+              <p class="service__text" data-i18n="services.wifi.text">Wi-Fi planned around your space, so coverage is steady where your team and customers actually use it.</p>
+            </div>
+            <button class="button button--ghost service__action" type="button" data-chat-topic="wifi" aria-describedby="service-wifi-title" data-i18n="services.cta">Ask about this</button>
+          </article>
+
+          <article class="service service--security">
+            <div class="service__cable" aria-hidden="true"></div>
+            <div class="service__body">
+              <h3 class="service__title" id="service-security-title" data-i18n="services.security.title">Security infrastructure</h3>
+              <p class="service__text" data-i18n="services.security.text">Cabling and infrastructure for cameras and access control, ready for the security system you choose.</p>
+            </div>
+            <button class="button button--ghost service__action" type="button" data-chat-topic="security" aria-describedby="service-security-title" data-i18n="services.cta">Ask about this</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROCESO ===================== -->
+    <section class="section section--surface" id="process" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" id="process-title" data-i18n="process.title">How a project works</h2>
+          <p class="section__intro" data-i18n="process.intro">From your first message to a finished installation, in four steps.</p>
+        </div>
+
+        <ol class="process__list">
+          <li class="step">
+            <span class="step__number" aria-hidden="true">1</span>
+            <h3 class="step__title" data-i18n="process.step1.title">Tell us what you need</h3>
+            <p class="step__text" data-i18n="process.step1.text">Message us on WhatsApp or use the form. Tell us what you need and where.</p>
+          </li>
+          <li class="step">
+            <span class="step__number" aria-hidden="true">2</span>
+            <h3 class="step__title" data-i18n="process.step2.title">Site visit and quote</h3>
+            <p class="step__text" data-i18n="process.step2.text">We look at the space, talk through the options and give you a clear quote.</p>
+          </li>
+          <li class="step">
+            <span class="step__number" aria-hidden="true">3</span>
+            <h3 class="step__title" data-i18n="process.step3.title">Installation</h3>
+            <p class="step__text" data-i18n="process.step3.text">We install the cabling and equipment following the plan we agreed on.</p>
+          </li>
+          <li class="step">
+            <span class="step__number" aria-hidden="true">4</span>
+            <h3 class="step__title" data-i18n="process.step4.title">Testing and support</h3>
+            <p class="step__text" data-i18n="process.step4.text">We test and certify the work, and stay available if you need support later.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACTO ===================== -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__grid">
+        <div class="contact__intro">
+          <h2 class="section__title" id="contact-title" data-i18n="contact.title">Tell us what you need</h2>
+          <p class="contact__text" data-i18n="contact.text">The fastest way to reach us is WhatsApp. Send a message and someone from our team will reply.</p>
+
+          <p class="language-note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9S14.500 18.300 12 21c-2.500-2.700-3.800-5.700-3.800-9S9.500 5.700 12 3z"/></svg>
+            <span data-i18n="contact.languages">We help you in English and Spanish.</span>
+          </p>
+
+          <dl class="contact-list">
+            <div>
+              <dt class="contact-list__label" data-i18n="contact.whatsapp">WhatsApp</dt>
+              <dd class="contact-list__value"><a href="#contact" data-whatsapp data-phone>WhatsApp</a></dd>
+            </div>
+            <div>
+              <dt class="contact-list__label" data-i18n="contact.email">Email</dt>
+              <dd class="contact-list__value"><a href="mailto:info@evosolutionsjv.com">info@evosolutionsjv.com</a></dd>
+            </div>
+            <div>
+              <dt class="contact-list__label" data-i18n="contact.instagram">Instagram</dt>
+              <dd class="contact-list__value"><a href="https://www.instagram.com/evosolutionsjv/" target="_blank" rel="noopener">@evosolutionsjv</a></dd>
+            </div>
+            <div>
+              <dt class="contact-list__label" data-i18n="contact.location">Location</dt>
+              <dd class="contact-list__value">Austin, TX</dd>
+            </div>
+          </dl>
+        </div>
+
+        <form class="form" id="contact-form" novalidate>
+          <div class="field">
+            <label class="field__label" for="field-name" data-i18n="form.name">Your name</label>
+            <input class="field__input" id="field-name" name="name" type="text" autocomplete="name" required aria-describedby="field-name-error">
+            <p class="field__error" id="field-name-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="field-service" data-i18n="form.service">What do you need?</label>
+            <select class="field__input" id="field-service" name="service" required aria-describedby="field-service-error">
+              <option value="" disabled selected data-i18n="form.servicePlaceholder">Choose a service</option>
+              <option value="network" data-i18n="service.network">Network and cabling</option>
+              <option value="fiber" data-i18n="service.fiber">Fiber optics</option>
+              <option value="wifi" data-i18n="service.wifi">Wi-Fi</option>
+              <option value="security" data-i18n="service.security">Security</option>
+              <option value="unsure" data-i18n="service.unsure">Not sure yet</option>
+            </select>
+            <p class="field__error" id="field-service-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="field-message" data-i18n="form.message">Details (optional)</label>
+            <textarea class="field__input" id="field-message" name="message" rows="4" data-i18n-placeholder="form.messagePlaceholder" placeholder="Tell us about your space and what you have in mind."></textarea>
+          </div>
+
+          <button class="button button--primary" type="submit" data-i18n="form.submit">Send on WhatsApp</button>
+          <p class="form__note" data-i18n="form.note">This opens WhatsApp with your message ready to send. Nothing is sent until you press send there.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <a class="brand" href="#top" aria-label="EVO Solutions+">
+        <span class="brand__mark" aria-hidden="true">E+</span>
+        <span>EVO Solutions+</span>
+      </a>
+      <p class="site-footer__text" data-i18n="footer.tagline">Technology, network and infrastructure.</p>
+      <p class="site-footer__text" data-i18n="footer.rights">© 2026 EVO Solutions+. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===================== CHAT (se llena con js/chat.js) ===================== -->
+  <div class="chat">
+    <section class="chat__panel" id="chat-panel" data-chat-panel role="dialog" aria-labelledby="chat-title" hidden>
+      <header class="chat__header">
+        <div>
+          <h2 class="chat__title" id="chat-title" data-i18n="chat.title">EVO Solutions+</h2>
+          <p class="chat__subtitle" data-i18n="chat.subtitle">Answer a few questions and we will pass them to our team on WhatsApp.</p>
+        </div>
+        <button class="chat__close" type="button" data-chat-close data-i18n-aria-label="chat.close" aria-label="Close chat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </header>
+
+      <div class="chat__log" data-chat-log role="log"></div>
+      <div class="chat__options" data-chat-options></div>
+
+      <div class="chat__footer">
+        <a href="#contact" data-whatsapp data-i18n="chat.direct">Talk to a person now</a>
+      </div>
+    </section>
+
+    <button class="chat__toggle" type="button" aria-expanded="false" aria-controls="chat-panel" data-chat-toggle>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.800 7L4 20.500l1.500-4.800A8 8 0 1 1 21 12z"/></svg>
+      <span data-i18n="chat.open">Chat with us</span>
+    </button>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

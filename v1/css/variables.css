@@ -1,0 +1,64 @@
+/* ==========================================================================
+   Variables: cambia colores, fuentes y espacios desde un solo lugar.
+   Tema oscuro: negro, blanco, gris y verde lima.
+   ========================================================================== */
+:root {
+  color-scheme: dark; /* controles nativos (select, scroll) en modo oscuro */
+
+  /* Color base: fondo negro, texto blanco, texto secundario gris y verde lima */
+  --color-paper: #000000;          /* fondo principal */
+  --color-surface: #0B0B0B;        /* secciones y tarjetas */
+  --color-surface-raised: #161616; /* elementos elevados (chat, burbujas) */
+  --color-ink: #FFFFFF;            /* texto principal */
+  --color-ink-soft: #A3A3A3;       /* texto secundario */
+  --color-line: #2A2A2A;
+  --color-accent: #B5E55D;         /* verde lima de la marca */
+  --color-accent-strong: #CDF58A;  /* lima más claro (hover y textos) */
+  --color-accent-soft: #171E09;    /* fondo tenue de verde */
+  --color-on-accent: #000000;      /* texto sobre el verde */
+  --color-error: #FF6B6B;
+
+  /* Colores de cable (uno por servicio): solo blancos, grises y verdes de la marca */
+  --cable-network: #B5E55D;
+  --cable-fiber: #FFFFFF;
+  --cable-wifi: #8C8C8C;
+  --cable-security: #6F8F2E;
+
+  /* Panel de conexiones */
+  --color-panel: #0B0B0B;
+  --color-panel-port: #050505;
+  --color-panel-line: #2A2A2A;
+  --color-panel-text: #A3A3A3;
+  --led-on: #B5E55D;
+
+  /* Tipografía */
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: clamp(1.125rem, 1.05rem + 0.4vw, 1.3125rem);
+  --text-xl: clamp(1.3rem, 1.15rem + 0.7vw, 1.65rem);
+  --text-2xl: clamp(1.75rem, 1.4rem + 1.6vw, 2.6rem);
+  --text-hero: clamp(2.4rem, 1.5rem + 4.4vw, 4.6rem);
+
+  /* Espaciado */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2.5rem;
+  --space-7: 4rem;
+  --space-section: clamp(3.5rem, 2.5rem + 5vw, 7rem);
+
+  /* Forma */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
+  --shadow-panel: 0 18px 50px rgba(0, 0, 0, 0.7);
+
+  /* Layout */
+  --header-height: 4.25rem;
+  --gutter: 1.25rem;
+}

@@ -5,6 +5,7 @@ import { initNavbar } from './navbar.js';
 import { initForm } from './form.js';
 import { initChat } from './chat.js';
 import { whatsappUrl } from './whatsapp.js';
+import { initCinematic } from './cinematic.js';
 
 // Todos los links con data-whatsapp apuntan al WhatsApp del equipo
 function initWhatsappLinks() {
@@ -27,3 +28,4 @@ initWhatsappLinks();
 initNavbar();
 initForm();
 initChat();
+initCinematic();

@@ -37,6 +37,11 @@ export const translations = {
     'services.wifi.text': 'Wi-Fi planned around your space, so coverage is steady where your team and customers actually use it.',
     'services.security.title': 'Security infrastructure',
     'services.security.text': 'Cabling and infrastructure for cameras and access control, ready for the security system you choose.',
+    'services.network.word': 'Cable',
+    'services.fiber.word': 'Fiber',
+    'services.wifi.word': 'Wi-Fi',
+    'services.security.word': 'Secure',
+    'signal.label': 'Follow the signal',
 
     'service.network': 'Network and cabling',
     'service.fiber': 'Fiber optics',
@@ -56,6 +61,7 @@ export const translations = {
     'process.step4.text': 'We test and certify the work, and stay available if you need support later.',
 
     'contact.title': 'Tell us what you need',
+    'contact.big': "Let's connect",
     'contact.text': 'The fastest way to reach us is WhatsApp. Send a message and someone from our team will reply.',
     'contact.languages': 'We help you in English and Spanish.',
     'contact.whatsapp': 'WhatsApp',
@@ -131,6 +137,11 @@ export const translations = {
     'services.wifi.text': 'Wi-Fi planificado según tu espacio, para que la cobertura sea estable donde tu equipo y tus clientes la usan.',
     'services.security.title': 'Infraestructura de seguridad',
     'services.security.text': 'Cableado e infraestructura para cámaras y control de acceso, listos para el sistema de seguridad que elijas.',
+    'services.network.word': 'Cableado',
+    'services.fiber.word': 'Fibra',
+    'services.wifi.word': 'Wi-Fi',
+    'services.security.word': 'Seguridad',
+    'signal.label': 'Sigue la señal',
 
     'service.network': 'Red y cableado',
     'service.fiber': 'Fibra óptica',
@@ -150,6 +161,7 @@ export const translations = {
     'process.step4.text': 'Probamos y certificamos el trabajo, y seguimos disponibles si necesitas soporte después.',
 
     'contact.title': 'Cuéntanos qué necesitas',
+    'contact.big': 'Conectemos',
     'contact.text': 'La forma más rápida de contactarnos es WhatsApp. Envía un mensaje y alguien de nuestro equipo te responderá.',
     'contact.languages': 'Te atendemos en inglés y español.',
     'contact.whatsapp': 'WhatsApp',

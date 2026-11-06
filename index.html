@@ -10,6 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="EVO Solutions+ | Technology, Network &amp; Infrastructure">
   <meta property="og:description" content="Structured cabling, fiber, Wi-Fi and security infrastructure in Austin, TX. Service in English and Spanish.">
+  <meta property="og:image" content="assets/images/og-evo.jpg">
 
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
 
@@ -17,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 
-  <!-- El orden importa: variables → reset → base → layout → componentes → chat → responsive -->
+  <!-- El orden importa: variables → reset → base → layout → componentes → chat → responsive → cinematic -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/base.css">
@@ -25,6 +26,7 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/chat.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/cinematic.css">
 </head>
 
 <body id="top">
@@ -67,6 +69,9 @@
       <!-- Foto + rombo interactivo. Reemplazar assets/images/hero.jpg por la foto original -->
       <div class="hero__media">
         <img class="hero__image" src="assets/images/hero.jpg" alt="" width="1200" height="1060" fetchpriority="high">
+        <!-- Cinemático: telón negro y pulso de luz en el punto de fuga del pasillo (los mueve js/cinematic.js) -->
+        <span class="hero__fade" aria-hidden="true"></span>
+        <span class="hero__pulse" aria-hidden="true"></span>
         <div class="hero__welcome">
           <button class="welcome-orb" type="button" data-chat-open data-i18n-aria-label="hero.orbLabel" aria-label="Welcome to EVO Solutions+. Start a chat.">
             <span class="welcome-orb__shape" aria-hidden="true"></span>
@@ -135,9 +140,12 @@
           </div>
         </div>
 
-        <div class="services__list">
+        <!-- Escenario de la señal: con JS se fija en pantalla y un pulso recorre el cable de servicio en servicio -->
+        <div class="services__list" data-signal>
+          <p class="signal__label" aria-hidden="true" data-i18n="signal.label">Follow the signal</p>
           <article class="service service--network">
             <div class="service__cable" aria-hidden="true"></div>
+            <p class="service__word" aria-hidden="true" data-i18n="services.network.word"></p>
             <div class="service__body">
               <h3 class="service__title" id="service-network-title" data-i18n="services.network.title">Network infrastructure</h3>
               <p class="service__text" data-i18n="services.network.text">Structured cabling, rack systems and network equipment, tested and certified so the network performs as it should.</p>
@@ -147,6 +155,7 @@
 
           <article class="service service--fiber">
             <div class="service__cable" aria-hidden="true"></div>
+            <p class="service__word" aria-hidden="true" data-i18n="services.fiber.word"></p>
             <div class="service__body">
               <h3 class="service__title" id="service-fiber-title" data-i18n="services.fiber.title">Fiber optics</h3>
               <p class="service__text" data-i18n="services.fiber.text">Fiber runs, terminations and splicing for fast, stable links between rooms, floors and buildings.</p>
@@ -156,6 +165,7 @@
 
           <article class="service service--wifi">
             <div class="service__cable" aria-hidden="true"></div>
+            <p class="service__word" aria-hidden="true" data-i18n="services.wifi.word"></p>
             <div class="service__body">
               <h3 class="service__title" id="service-wifi-title" data-i18n="services.wifi.title">Wi-Fi solutions</h3>
               <p class="service__text" data-i18n="services.wifi.text">Wi-Fi planned around your space, so coverage is steady where your team and customers actually use it.</p>
@@ -165,6 +175,7 @@
 
           <article class="service service--security">
             <div class="service__cable" aria-hidden="true"></div>
+            <p class="service__word" aria-hidden="true" data-i18n="services.security.word"></p>
             <div class="service__body">
               <h3 class="service__title" id="service-security-title" data-i18n="services.security.title">Security infrastructure</h3>
               <p class="service__text" data-i18n="services.security.text">Cabling and infrastructure for cameras and access control, ready for the security system you choose.</p>
@@ -210,6 +221,7 @@
 
     <!-- ===================== CONTACTO ===================== -->
     <section class="section" id="contact" aria-labelledby="contact-title">
+      <p class="contact__big" aria-hidden="true" data-i18n="contact.big">Let's connect</p>
       <div class="container contact__grid">
         <div class="contact__intro">
           <h2 class="section__title" id="contact-title" data-i18n="contact.title">Tell us what you need</h2>
@@ -286,7 +298,7 @@
 
   <!-- ===================== CHAT (se llena con js/chat.js) ===================== -->
   <div class="chat">
-    <section class="chat__panel" id="chat-panel" data-chat-panel role="dialog" aria-labelledby="chat-title" hidden>
+    <section class="chat__panel" id="chat-panel" data-chat-panel data-lenis-prevent role="dialog" aria-labelledby="chat-title" hidden>
       <header class="chat__header">
         <div>
           <h2 class="chat__title" id="chat-title" data-i18n="chat.title">EVO Solutions+</h2>
@@ -311,6 +323,10 @@
     </button>
   </div>
 
+  <!-- Movimiento: GSAP + ScrollTrigger + Lenis (si no cargan, la página funciona igual, sin animaciones) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>
