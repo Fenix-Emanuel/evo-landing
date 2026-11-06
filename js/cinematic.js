@@ -104,6 +104,7 @@ function initSignal(gsap) {
     svg.appendChild(p);
   });
   stage.prepend(svg);
+  const scene = createScene(stage);
 
   // Largo total y en qué punto del largo cae cada nodo
   const total = lit.getTotalLength();
@@ -157,17 +158,21 @@ function initSignal(gsap) {
   const update = () => {
     lit.style.strokeDashoffset = total - state.len;
     place(pulse, lit.getPointAtLength(Math.max(0, Math.min(total, state.len))));
+    let active = -1;
     nodes.forEach((node, i) => {
       const on = state.len >= nodeLen[i] - 1;
       node.classList.toggle('is-on', on);
       railItems[i].classList.toggle('is-on', on);
+      if (on) active = i;
     });
+    scene.setActive(active);
   };
   const layout = () => { nodes.forEach((n) => place(n, n._pt)); update(); };
   layout();
 
   gsap.set(services, { autoAlpha: 0 });
   gsap.set(stage.querySelectorAll('.service__body, .service__action'), { opacity: 0, y: 30 });
+  gsap.set(stage.querySelectorAll('.service__object'), { opacity: 0, scale: 0.86, yPercent: 8 });
 
   const tl = gsap.timeline({
     defaults: { ease: 'none' },
@@ -179,12 +184,14 @@ function initSignal(gsap) {
       scrub: 0.8,
       invalidateOnRefresh: true,
       onRefresh: layout,
+      onToggle: (self) => scene.run(self.isActive),
     },
   });
 
   services.forEach((service, i) => {
     const word = service.querySelector('.service__word');
     const body = service.querySelectorAll('.service__body, .service__action');
+    const object = service.querySelector('.service__object');
 
     // viaja hasta el nodo
     tl.to(state, { len: nodeLen[i], duration: 1, ease: 'power1.inOut', onUpdate: update });
@@ -192,17 +199,112 @@ function initSignal(gsap) {
     tl.set(service, { autoAlpha: 1 });
     tl.fromTo(word, { opacity: 0, yPercent: 14, backgroundPosition: '100% 0' },
       { opacity: 0.9, yPercent: 0, backgroundPosition: '0% 0', duration: 0.55, ease: 'power2.out' });
+    tl.to(object, { opacity: 1, scale: 1, yPercent: 0, duration: 0.6, ease: 'power3.out' }, '<0.05');
     tl.to(body, { opacity: 1, y: 0, duration: 0.35, stagger: 0.08, ease: 'power2.out' }, '<0.15');
-    tl.to({}, { duration: 0.6 }); // pausa para leer
+    // pausa para leer: el objeto sigue acercándose despacio
+    tl.to(object, { scale: 1.06, rotation: i % 2 ? -2 : 2, duration: 0.6 }, '>');
 
     if (i < services.length - 1) {
       tl.to([word, ...body], { opacity: 0, y: -24, duration: 0.3, ease: 'power1.in' });
+      tl.to(object, { opacity: 0, scale: 1.18, yPercent: -6, duration: 0.3, ease: 'power1.in' }, '<');
       tl.set(service, { autoAlpha: 0 });
     }
   });
   tl.to(state, { len: total, duration: 0.6, onUpdate: update });
 
   window.addEventListener('resize', layout);
+}
+
+// ---------- Escena de fondo en canvas: una atmósfera distinta por servicio ----------
+// network: luces de rack · fiber: haces de luz · wifi: ondas · security: barrido de cámara
+function createScene(stage) {
+  const canvas = document.createElement('canvas');
+  canvas.className = 'signal__scene';
+  canvas.setAttribute('aria-hidden', 'true');
+  stage.prepend(canvas);
+  const ctx = canvas.getContext('2d');
+  const LIME = [181, 229, 93];
+  let w = 0, h = 0, dpr = 1, running = false, active = -1, raf = 0;
+  const weight = [0, 0, 0, 0];
+
+  // Datos fijos de cada escena (se generan una vez)
+  const leds = Array.from({ length: 140 }, () => ({ x: Math.random(), y: Math.random(), p: Math.random() * 6.28, s: 0.6 + Math.random() * 1.6, c: Math.random() }));
+  const beams = Array.from({ length: 46 }, () => ({ y: Math.random(), x: Math.random(), v: 0.15 + Math.random() * 0.5, l: 0.05 + Math.random() * 0.18, a: 0.25 + Math.random() * 0.6 }));
+
+  const resize = () => {
+    dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    w = stage.clientWidth; h = stage.clientHeight;
+    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+  resize();
+  window.addEventListener('resize', resize);
+
+  const rgba = (c, a) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
+  const focus = () => ({ x: w * (w >= 896 ? 0.66 : 0.5), y: h * (w >= 896 ? 0.46 : 0.37) });
+
+  const drawers = [
+    // Cableado: columnas de LEDs a los costados, como racks en la penumbra
+    (t, a) => {
+      leds.forEach((d) => {
+        const side = d.x < 0.5 ? d.x * 0.36 : 0.82 + (d.x - 0.5) * 0.36;
+        const on = 0.35 + 0.65 * Math.max(0, Math.sin(t * d.s + d.p));
+        ctx.fillStyle = d.c > 0.82 ? `rgba(255,255,255,${0.5 * on * a})` : rgba(LIME, 0.55 * on * a);
+        ctx.fillRect(side * w, (0.12 + d.y * 0.8) * h, 3, 3);
+      });
+    },
+    // Fibra: haces de luz que cruzan la pantalla
+    (t, a) => {
+      ctx.lineCap = 'round';
+      beams.forEach((b) => {
+        const x = ((b.x + t * b.v * 0.12) % 1.3 - 0.15) * w;
+        const g = ctx.createLinearGradient(x - b.l * w, 0, x, 0);
+        g.addColorStop(0, rgba(LIME, 0)); g.addColorStop(1, `rgba(235,255,210,${b.a * a})`);
+        ctx.strokeStyle = g; ctx.lineWidth = 1.2;
+        ctx.beginPath(); ctx.moveTo(x - b.l * w, b.y * h); ctx.lineTo(x, b.y * h); ctx.stroke();
+      });
+    },
+    // Wi-Fi: ondas que se expanden desde el access point
+    (t, a) => {
+      const f = focus();
+      for (let i = 0; i < 6; i++) {
+        const k = ((t * 0.22 + i / 6) % 1);
+        ctx.strokeStyle = rgba(LIME, (1 - k) * 0.45 * a); ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.arc(f.x, f.y, 40 + k * Math.max(w, h) * 0.6, 0, Math.PI * 2); ctx.stroke();
+      }
+    },
+    // Seguridad: grilla de puntos y un haz que barre la escena
+    (t, a) => {
+      const f = focus();
+      ctx.fillStyle = rgba(LIME, 0.12 * a);
+      for (let x = 24; x < w; x += 36) for (let y = 24; y < h; y += 36) ctx.fillRect(x, y, 1.5, 1.5);
+      const ang = Math.PI + Math.sin(t * 0.6) * 0.55;
+      const r = Math.max(w, h);
+      const g = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, r * 0.8);
+      g.addColorStop(0, rgba(LIME, 0.22 * a)); g.addColorStop(1, rgba(LIME, 0));
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.moveTo(f.x, f.y); ctx.arc(f.x, f.y, r, ang - 0.22, ang + 0.22); ctx.closePath(); ctx.fill();
+    },
+  ];
+
+  const frame = (ms) => {
+    const t = ms / 1000;
+    ctx.clearRect(0, 0, w, h);
+    weight.forEach((v, i) => {
+      weight[i] += ((i === active ? 1 : 0) - v) * 0.08; // fundido suave entre escenas
+      if (weight[i] > 0.01) drawers[i](t, weight[i]);
+    });
+    if (running) raf = requestAnimationFrame(frame);
+  };
+
+  return {
+    setActive(i) { active = i; },
+    run(on) {
+      if (on === running) return;
+      running = on;
+      if (on) { resize(); raf = requestAnimationFrame(frame); } else cancelAnimationFrame(raf);
+    },
+  };
 }
 
 // ---------- 3. Títulos y panel de conexiones ----------

@@ -11,12 +11,13 @@
   <meta property="og:title" content="EVO Solutions+ | Technology, Network &amp; Infrastructure">
   <meta property="og:description" content="Structured cabling, fiber, Wi-Fi and security infrastructure in Austin, TX. Service in English and Spanish.">
   <meta property="og:image" content="assets/images/og-evo.jpg">
+  <link rel="preload" as="image" href="assets/images/hero-2400.webp" fetchpriority="high">
 
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Unbounded:wght@800&display=swap">
 
   <!-- El orden importa: variables → reset → base → layout → componentes → chat → responsive → cinematic -->
   <link rel="stylesheet" href="css/variables.css">
@@ -68,7 +69,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <!-- Foto + rombo interactivo. Reemplazar assets/images/hero.jpg por la foto original -->
       <div class="hero__media">
-        <img class="hero__image" src="assets/images/hero.jpg" alt="" width="1200" height="1060" fetchpriority="high">
+        <img class="hero__image" src="assets/images/hero-2400.webp" alt="" width="2400" height="2120" fetchpriority="high">
         <!-- Cinemático: telón negro y pulso de luz en el punto de fuga del pasillo (los mueve js/cinematic.js) -->
         <span class="hero__fade" aria-hidden="true"></span>
         <span class="hero__pulse" aria-hidden="true"></span>
@@ -146,9 +147,11 @@
           <article class="service service--network">
             <div class="service__cable" aria-hidden="true"></div>
             <p class="service__word" aria-hidden="true" data-i18n="services.network.word"></p>
+            <img class="service__object" src="assets/images/services/network.webp" alt="" width="900" height="900" loading="lazy" decoding="async">
             <div class="service__body">
               <h3 class="service__title" id="service-network-title" data-i18n="services.network.title">Network infrastructure</h3>
               <p class="service__text" data-i18n="services.network.text">Structured cabling, rack systems and network equipment, tested and certified so the network performs as it should.</p>
+              <ul class="service__specs"><li data-i18n="services.network.spec1"></li><li data-i18n="services.network.spec2"></li><li data-i18n="services.network.spec3"></li></ul>
             </div>
             <button class="button button--ghost service__action" type="button" data-chat-topic="network" aria-describedby="service-network-title" data-i18n="services.cta">Ask about this</button>
           </article>
@@ -156,9 +159,11 @@
           <article class="service service--fiber">
             <div class="service__cable" aria-hidden="true"></div>
             <p class="service__word" aria-hidden="true" data-i18n="services.fiber.word"></p>
+            <img class="service__object" src="assets/images/services/fiber.webp" alt="" width="900" height="900" loading="lazy" decoding="async">
             <div class="service__body">
               <h3 class="service__title" id="service-fiber-title" data-i18n="services.fiber.title">Fiber optics</h3>
               <p class="service__text" data-i18n="services.fiber.text">Fiber runs, terminations and splicing for fast, stable links between rooms, floors and buildings.</p>
+              <ul class="service__specs"><li data-i18n="services.fiber.spec1"></li><li data-i18n="services.fiber.spec2"></li><li data-i18n="services.fiber.spec3"></li></ul>
             </div>
             <button class="button button--ghost service__action" type="button" data-chat-topic="fiber" aria-describedby="service-fiber-title" data-i18n="services.cta">Ask about this</button>
           </article>
@@ -166,9 +171,11 @@
           <article class="service service--wifi">
             <div class="service__cable" aria-hidden="true"></div>
             <p class="service__word" aria-hidden="true" data-i18n="services.wifi.word"></p>
+            <img class="service__object" src="assets/images/services/wifi.webp" alt="" width="900" height="900" loading="lazy" decoding="async">
             <div class="service__body">
               <h3 class="service__title" id="service-wifi-title" data-i18n="services.wifi.title">Wi-Fi solutions</h3>
               <p class="service__text" data-i18n="services.wifi.text">Wi-Fi planned around your space, so coverage is steady where your team and customers actually use it.</p>
+              <ul class="service__specs"><li data-i18n="services.wifi.spec1"></li><li data-i18n="services.wifi.spec2"></li><li data-i18n="services.wifi.spec3"></li></ul>
             </div>
             <button class="button button--ghost service__action" type="button" data-chat-topic="wifi" aria-describedby="service-wifi-title" data-i18n="services.cta">Ask about this</button>
           </article>
@@ -176,9 +183,11 @@
           <article class="service service--security">
             <div class="service__cable" aria-hidden="true"></div>
             <p class="service__word" aria-hidden="true" data-i18n="services.security.word"></p>
+            <img class="service__object" src="assets/images/services/security.webp" alt="" width="900" height="900" loading="lazy" decoding="async">
             <div class="service__body">
               <h3 class="service__title" id="service-security-title" data-i18n="services.security.title">Security infrastructure</h3>
               <p class="service__text" data-i18n="services.security.text">Cabling and infrastructure for cameras and access control, ready for the security system you choose.</p>
+              <ul class="service__specs"><li data-i18n="services.security.spec1"></li><li data-i18n="services.security.spec2"></li><li data-i18n="services.security.spec3"></li></ul>
             </div>
             <button class="button button--ghost service__action" type="button" data-chat-topic="security" aria-describedby="service-security-title" data-i18n="services.cta">Ask about this</button>
           </article>
@@ -293,6 +302,11 @@
       </a>
       <p class="site-footer__text" data-i18n="footer.tagline">Technology, network and infrastructure.</p>
       <p class="site-footer__text" data-i18n="footer.rights">© 2026 EVO Solutions+. All rights reserved.</p>
+      <!-- Sello de Ignis Studio -->
+      <a class="ignis-seal" href="https://theignisstudio.com" target="_blank" rel="noopener">
+        <span class="ignis-seal__label" data-i18n="footer.ignis">Designed &amp; built by</span>
+        <span class="ignis-seal__mark"><i aria-hidden="true"></i>IGNIS</span>
+      </a>
     </div>
   </footer>
 

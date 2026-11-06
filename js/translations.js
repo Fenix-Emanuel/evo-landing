@@ -42,6 +42,18 @@ export const translations = {
     'services.wifi.word': 'Wi-Fi',
     'services.security.word': 'Secure',
     'signal.label': 'Follow the signal',
+    'services.network.spec1': 'Cat6 / Cat6A',
+    'services.network.spec2': 'Certified testing',
+    'services.network.spec3': 'Racks & patch panels',
+    'services.fiber.spec1': 'Single-mode & multimode',
+    'services.fiber.spec2': 'Fusion splicing',
+    'services.fiber.spec3': 'OTDR testing',
+    'services.wifi.spec1': 'Site survey',
+    'services.wifi.spec2': 'Wi-Fi 6 / 6E',
+    'services.wifi.spec3': 'Seamless roaming',
+    'services.security.spec1': 'PoE cameras',
+    'services.security.spec2': 'Access control',
+    'services.security.spec3': 'NVR-ready cabling',
 
     'service.network': 'Network and cabling',
     'service.fiber': 'Fiber optics',
@@ -80,6 +92,7 @@ export const translations = {
     'form.errorService': 'Choose a service.',
 
     'footer.tagline': 'Technology, network and infrastructure.',
+    'footer.ignis': 'Designed & built by',
     'footer.rights': '© 2026 EVO Solutions+. All rights reserved.',
 
     'chat.open': 'Chat with us',
@@ -142,6 +155,18 @@ export const translations = {
     'services.wifi.word': 'Wi-Fi',
     'services.security.word': 'Seguridad',
     'signal.label': 'Sigue la señal',
+    'services.network.spec1': 'Cat6 / Cat6A',
+    'services.network.spec2': 'Pruebas certificadas',
+    'services.network.spec3': 'Racks y patch panels',
+    'services.fiber.spec1': 'Monomodo y multimodo',
+    'services.fiber.spec2': 'Empalme por fusión',
+    'services.fiber.spec3': 'Pruebas OTDR',
+    'services.wifi.spec1': 'Estudio de cobertura',
+    'services.wifi.spec2': 'Wi-Fi 6 / 6E',
+    'services.wifi.spec3': 'Roaming sin cortes',
+    'services.security.spec1': 'Cámaras PoE',
+    'services.security.spec2': 'Control de acceso',
+    'services.security.spec3': 'Cableado listo para NVR',
 
     'service.network': 'Red y cableado',
     'service.fiber': 'Fibra óptica',
@@ -180,6 +205,7 @@ export const translations = {
     'form.errorService': 'Elige un servicio.',
 
     'footer.tagline': 'Tecnología, redes e infraestructura.',
+    'footer.ignis': 'Diseño y desarrollo por',
     'footer.rights': '© 2026 EVO Solutions+. Todos los derechos reservados.',
 
     'chat.open': 'Escríbenos',

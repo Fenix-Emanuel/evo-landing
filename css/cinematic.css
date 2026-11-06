@@ -275,9 +275,10 @@ html { overflow-x: clip; }
 }
 
 @media (max-width: 47.99em) {
-  .is-cine .signal__wire { top: 38%; }
-  .is-cine .service__word { top: 28%; font-size: 16vw; }
-  .signal__rail { font-size: 0.8rem; }
+  /* En el celular: palabra arriba, cable, objeto en el medio y textos abajo (sin el riel) */
+  .is-cine .signal__rail { display: none; }
+  .is-cine .service__word { top: 18%; font-size: 16vw; }
+  .is-cine .signal__wire { top: 24%; }
   .is-cine .signal__rail { top: calc(var(--header-height) + var(--space-6) + var(--space-4)); left: var(--gutter); right: auto; max-width: none; justify-content: flex-start; }
 }
 
@@ -314,4 +315,99 @@ html { overflow-x: clip; }
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--color-accent);
+}
+
+/* ---------- Escena de cada servicio: objeto delante de la palabra (sello Ignis) ---------- */
+.service__object { display: none; }
+
+.service__specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service__specs li {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  color: var(--color-ink);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Capas: escena (canvas) < palabra < objeto < cable y pulso < textos */
+.signal__scene { display: none; }
+.is-cine .signal__scene { display: block; position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.is-cine .service__word { z-index: 1; }
+.is-cine [data-signal] .service { z-index: 2; }
+.is-cine .signal__wire { z-index: 3; }
+.is-cine .signal__node { z-index: 3; }
+.is-cine .signal__pulse { z-index: 4; }
+.is-cine [data-signal] .service__body,
+.is-cine [data-signal] .service__action { z-index: 5; }
+.is-cine .signal__label, .is-cine .signal__rail { z-index: 5; }
+
+.is-cine .service__object {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  z-index: 2;
+  width: min(44vw, 58svh);
+  height: auto;
+  translate: -50% -50%;
+  pointer-events: none;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.8));
+}
+
+/* El objeto va a la derecha en escritorio para no tapar los textos */
+@media (min-width: 56em) {
+  .is-cine .service__object { left: 66%; top: 46%; width: min(40vw, 66svh); }
+  .is-cine .service__word { top: 14%; }
+}
+
+@media (max-width: 47.99em) {
+  .is-cine .service__object { top: 37%; width: 36vw; }
+  .is-cine [data-signal] .service__text { font-size: var(--text-base); }
+  .is-cine .service__specs li { font-size: 0.78rem; padding: 0.25rem 0.6rem; }
+}
+
+/* ---------- Sello de Ignis Studio (footer) ---------- */
+.ignis-seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  transition: border-color 0.25s, color 0.25s;
+}
+
+.ignis-seal:hover { border-color: #FF5A1F; color: var(--color-ink); }
+
+.ignis-seal__mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--color-ink);
+  font-family: 'Unbounded', 'Arial Black', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+/* Brasa de Ignis: el único naranja de la página, solo en el sello */
+.ignis-seal__mark i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #FF5A1F;
+  box-shadow: 0 0 10px 2px rgba(255, 90, 31, 0.7);
 }
